@@ -64,7 +64,7 @@ else :
             if isinstance(results, str):
                 # Error occurred
                 if results == 'near "Error": syntax error':
-                    response = "Error: Rate Limit Exceeded"
+                    response = "Error: Rate Limit Exceeded please wait 2 min."
                 else:
                     response = f"Error: {results}"
             else:
