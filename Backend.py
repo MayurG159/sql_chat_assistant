@@ -2,6 +2,7 @@
 import pandas as pd
 from openai import OpenAI
 import sqlite3 as sql
+from openai import api_key
 
 ## Database Schema.
 schema = ''' 
@@ -62,7 +63,7 @@ def llm_query_response(api_key,model,prompt):
     '''
 
     if model == 'deepseek/deepseek-r1:free':
-        res = model_setup(api_key, system_query,human_query)
+        res = model_setup(api_key, system_query, human_query)
         if res == "Error : Rate Limited Exceeded.":
             generated_query = res
             print(generated_query)

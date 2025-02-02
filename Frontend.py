@@ -2,7 +2,7 @@ import streamlit as st
 import Backend
 import pandas as pd
 import time
-import openai
+from openai import api_key
 
 # Page Configuration
 st.set_page_config(page_title="SQL Chat Assistant", layout="wide")
@@ -62,7 +62,7 @@ else :
             st.markdown(prompt)
     
         # Generate SQL query
-        sql_query = Backend.llm_query_response(api_key,model, prompt)
+        sql_query = Backend.llm_query_response(api_key, model, prompt)
         response = ""
 
         if sql_query:
