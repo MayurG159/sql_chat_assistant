@@ -87,6 +87,7 @@ def llm_query_response(api_key,model,prompt):
 
     # Final generated_query.
     generated_query = truncated_response[start:end]
+    generated_query  = generated_query.replace("'",'"')
 
     return generated_query
 
