@@ -9,7 +9,7 @@ st.set_page_config(page_title="SQL Chat Assistant", layout="wide")
 
 import os
 
-file_path = '/mount/src/sql_chat_assistant/api_key.txt'
+file_path = 'sql_chat_assistant/api_key.txt'
 with open(file_path) as f:
     api_key = f.read()
 
