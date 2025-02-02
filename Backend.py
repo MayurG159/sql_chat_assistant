@@ -2,7 +2,6 @@
 import pandas as pd
 from openai import OpenAI
 import sqlite3 as sql
-from openai import api_key
 
 ## Database Schema.
 schema = ''' 
