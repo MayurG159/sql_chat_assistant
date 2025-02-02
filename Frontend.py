@@ -8,7 +8,7 @@ st.set_page_config(page_title="SQL Chat Assistant", layout="wide")
 
 
 ## API KEY
-api_key = st.secrets['API_KEY']
+api_key = st.secrets["API_KEY"]
 
 # Sidebar
 with st.sidebar:
