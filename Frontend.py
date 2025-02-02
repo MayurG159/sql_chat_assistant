@@ -6,8 +6,12 @@ import time
 
 # Page Configuration
 st.set_page_config(page_title="SQL Chat Assistant", layout="wide")
-with open("~/api_key.txt") as f:
-    api_key = f.read() 
+
+import os
+
+file_path = os.path.expanduser('~/api_key.txt')
+with open(file_path) as f:
+    api_key = f.read()
 
 # Sidebar
 with st.sidebar:
