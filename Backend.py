@@ -32,10 +32,10 @@ def model_setup(api_key, system_query, human_query):
 
 
 ## Retrieval of Data for the generated query
-def execute_sql(sql_query):
+def execute_sql(database,sql_query):
     if not sql:
         return None, "No SQL generated."
-    conn = sql.connect('"sql_chat_assistant//Database"')
+    conn = sql.connect(database)
     c = conn.cursor()
     try:
         c.execute(sql_query)

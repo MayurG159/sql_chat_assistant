@@ -9,6 +9,7 @@ st.set_page_config(page_title="SQL Chat Assistant", layout="wide")
 
 ## API KEY
 api_key = st.secrets["API_KEY"]
+database = st.secrets["DATABASE"]
 
 # Sidebar
 with st.sidebar:
@@ -59,7 +60,7 @@ else :
 
         if sql_query:
             # Execute SQL
-            columns, results = Backend.execute_sql(sql_query)
+            columns, results = Backend.execute_sql(database,sql_query)
             if isinstance(results, str):
                 # Error occurred
                 if results == 'near "Error": syntax error':
