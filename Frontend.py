@@ -3,9 +3,12 @@ import Backend
 import pandas as pd
 import time
 
+
 # Page Configuration
 st.set_page_config(page_title="SQL Chat Assistant", layout="wide")
-api_key = "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"
+with open("sql_chat_assistant\api_key.txt") as f:
+    api_key = f.read() 
+
 # Sidebar
 with st.sidebar:
     st.title("🛠️ SQL Chat Assistant")
