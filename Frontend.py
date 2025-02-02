@@ -16,6 +16,16 @@ with open(file_path) as f:
 # Sidebar
 with st.sidebar:
     st.title("🛠️ SQL Chat Assistant")
+    if 'OPENAI_API_KEY' in st.secrets:
+        st.success('API key already provided!', icon='✅')
+        api_key = st.secrets['Open_Router_API_KEY']
+    else:
+        api_key = st.text_input('Enter OpenAI API token:', type='password')
+        if not (api_key.startswith('sk-') and len(api_key)==51):
+            st.warning('Please enter your credentials!', icon='⚠️')
+        else:
+            st.success('Proceed to entering your prompt message!', icon='👉')    
+
     st.write("💡 **Usage:** This assistant helps generate SQL queries based on user queries and retrieves results from the database.")
     st.write("🧠 **Model Used:**OpenRouterAPI - DeepSeek-r1 free")
     st.write("🗂️ **Database:** company.db")
@@ -57,7 +67,7 @@ else :
             st.markdown(prompt)
     
         # Generate SQL query
-        sql_query = Backend.llm_query_response(api_key,model, prompt)
+        sql_query = Backend.llm_query_response(api_key, model, prompt)
         response = ""
 
         if sql_query:
